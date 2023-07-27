@@ -37,12 +37,12 @@ public class CalculatorServesImplTest {
         int num1 = 5;
         int num2 = 0;
         String exceptedMessage = "Деление на 0";
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            String exception = calculatorServes.divide(num1, num2);
-            // assertEquals(exceptedMessage,exception.getMessage());
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            calculatorServes.divide(num1, num2);
         });
-
+        assertEquals(exceptedMessage, exception.getMessage());
     }
+
     @Test
     void divide() {
         int num1 = 6;
